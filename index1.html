@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            margin: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+        .form-container input[type="submit"] {
+            background: #333;
+            color: #fff;
+            border: 0;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background: #555;
+        }
+    </style>
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByTagName("a");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Currículo</h1>
+        <nav>
+            <a onclick="openTab(event, 'sobre')">Sobre</a>
+            <a onclick="openTab(event, 'formacao')">Formação</a>
+            <a onclick="openTab(event, 'portfolio')">Portfólio</a>
+            <a onclick="openTab(event, 'contato')">Contato</a>
+        </nav>
+    </header>
+
+    <section id="sobre" class="tab-content">
+        <h2>Sobre</h2>
+        <p>Olá, meu nome é Edson. Sou estudade do curso de Análise e Desenvolvimento de Sistemas.</p>
+        <p>Nas horas vagas gosto de praticar atividades físicas e curtir a família.</p>
+    </section>
+
+    <section id="formacao" class="tab-content">
+        <h2>Formação</h2>
+        <p>Graduando em Análise e Desenvolvimento de Sistemas pela Universidade Uninter.</p>
+    </section>
+
+    <section id="portfolio" class="tab-content">
+        <h2>Portfólio</h2>
+        <p>Confira alguns dos meus projetos no <a href="https://edsoncr1.github.io/teste1/" target="_blank">meu GitHub</a>.</p>
+    </section>
+
+    <section id="contato" class="tab-content">
+        <h2>Contato</h2>
+        <div class="form-container">
+            <form action="mailto:edson_crchagas@hotmail.com" method="post" enctype="text/plain">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="Edson Chagas Rodrigues" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="edson_crchagas@hotmail.com" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required>Escreva sua mensagem aqui...</textarea>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Abre a aba "Sobre" por padrão
+        document.getElementsByClassName("tab-content")[0].style.display = "block";
+        document.getElementsByTagName("a")[0].className += " active";
+    </script>
+</body>
+</html>
